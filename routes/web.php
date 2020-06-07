@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// '/'にアクセスされた場合はTasksControllerのindex関数が処理を担当
 Route::get('/', 'TasksController@index');
 
 Route::resource('tasks', 'TasksController');
