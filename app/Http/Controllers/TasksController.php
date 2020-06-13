@@ -65,7 +65,7 @@ class TasksController extends Controller
         // $task = Task::findOrFail($id);
         // \Log::debug('show関数です。');
         
-        $task = Task::findOrFail($id);
+        $task = Task::find($id);
         // $taskがnullならトップページにリダイレクト
         if(empty($task)){
             \Log::debug('エラーが発生しました。');
