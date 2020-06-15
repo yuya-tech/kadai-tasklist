@@ -8,8 +8,8 @@
             <thead>
                 <tr>
                     <th>id</th>
-                    <th>ステータス</th>
-                    <th>タスク</th>
+                    <th>status</th>
+                    <th>task</th>
                 </tr>
             </thead>
             <tbody>

@@ -10,11 +10,11 @@
             <td>{{ $task->id }}</td>
         </tr>
         <tr>
-            <th>ステータス</th>
+            <th>status</th>
             <td>{{ $task->status_name }}</td>
         </tr>
         <tr>
-            <th>タスク</th>
+            <th>task</th>
             <td>{{ $task->content }}</td>
         </tr>
     </table>
