@@ -23,7 +23,7 @@ class TasksController extends Controller
             'tasks' => $tasks,
         ]);
     }
-
+    //testだよ
     /**
      * Show the form for creating a new resource.
      *
@@ -31,7 +31,7 @@ class TasksController extends Controller
      */
     public function create()
     {
-       $task = new Task;
+        $task = new Task;
 
         return view('tasks.create', [
             'task' => $task,
@@ -50,12 +50,12 @@ class TasksController extends Controller
             'status_name' => 'required|max:10',
             'content' => 'required|max:191',
         ]);
-        
+
         $task = new Task;
         $task->status_name = $request->status_name;
         $task->content = $request->content;
         $task->save();
-        
+
         return redirect('/');
     }
 
@@ -70,14 +70,14 @@ class TasksController extends Controller
         // $taskがnullなら404 Not Foundページが表示される
         // $task = Task::findOrFail($id);
         // \Log::debug('show関数です。');
-        
+
         $task = Task::find($id);
         // $taskがnullならトップページにリダイレクト
         //if(empty($task)){
-            //\Log::debug('エラーが発生しました。');
-           // return redirect('/');
-       // }
-    
+        //\Log::debug('エラーが発生しました。');
+        // return redirect('/');
+        // }
+
         return view('tasks.show', [
             'task' => $task,
         ]);
@@ -92,7 +92,7 @@ class TasksController extends Controller
     public function edit($id)
     {
         $task = task::find($id);
-    
+
         return view('tasks.edit', [
             'task' => $task,
         ]);
@@ -111,7 +111,7 @@ class TasksController extends Controller
             'status_name' => 'required|max:10',
             'content' => 'required|max:191',
         ]);
-        
+
         $task = Task::find($id);
         $task->status_name = $request->status_name;
         $task->content = $request->content;
@@ -130,7 +130,7 @@ class TasksController extends Controller
     {
         $task = Task::find($id);
         $task->delete();
-    
+
         return redirect('/');
     }
 }
