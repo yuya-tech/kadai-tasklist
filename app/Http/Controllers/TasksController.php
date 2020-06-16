@@ -61,20 +61,11 @@ class TasksController extends Controller
      */
     public function show($id)
     {
-        // $taskがnullなら404 Not Foundページが表示される
-        // $task = Task::findOrFail($id);
-        // \Log::debug('show関数です。');
-        
-        $task = Task::findOrFail($id);
-        // $taskがnullならトップページにリダイレクト
-        if(empty($task)){
-            \Log::debug('エラーが発生しました。');
-            return redirect('/');
-        }
-    
+    $task = Task::find($id);
+
         return view('tasks.show', [
             'task' => $task,
-        ]);
+            ]);
     }
 
     /**
@@ -85,8 +76,8 @@ class TasksController extends Controller
      */
     public function edit($id)
     {
-        $task = task::findOrFail($id);
-    
+    $task = task::find($id);
+
         return view('tasks.edit', [
             'task' => $task,
         ]);
@@ -101,7 +92,7 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $task = Task::findOrFail($id);
+        $task = Task::find($id);
         $task->content = $request->content;
         $task->save();
 
@@ -116,9 +107,9 @@ class TasksController extends Controller
      */
     public function destroy($id)
     {
-        $task = Task::find($id);
+    $task = Task::find($id);
         $task->delete();
-    
+
         return redirect('/');
     }
 }
