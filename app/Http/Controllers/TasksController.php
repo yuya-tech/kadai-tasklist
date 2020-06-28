@@ -22,8 +22,22 @@ class TasksController extends Controller
         return view('tasks.index', [
             'tasks' => $tasks,
         ]);
+
+        $data = [];
+        if (\Auth::check()) {
+            $user = \Auth::user();
+            $tasks = $user->tasks()->orderBy('created_at', 'desc')->paginate(10);
+            
+            $data = [
+                'user' => $user,
+                'tasks' => $tasks,
+            ];
+        }
+        
+        return view('welcome', $data);
     }
-    //testだよささｓ
+    }
+
     /**
      * Show the form for creating a new resource.
      *
