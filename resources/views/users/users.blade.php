@@ -13,6 +13,6 @@
                 </div>
             </li>
         @endforeach
-        {{ $users->links('pagination::bootstrap-4') }}
     </ul>
+    {{ $users->links('pagination::bootstrap-4') }}
 @endif
