@@ -34,7 +34,7 @@ class TasksController extends Controller
             ];
         }
 
-        return view('welcome', $data);
+        return view('welcome', ['data' => $data]);
     }
 
     /**
@@ -69,13 +69,11 @@ class TasksController extends Controller
             'status_name' => $request->status_name,
         ]);
 
-        return back();
-
-        $task = new Task;
-        $task->status_name = $request->status_name;
-        $task->content = $request->content;
-        $task->user_id = $request->user_id;
-        $task->save();
+        // $task = new Task;
+        // $task->status_name = $request->status_name;
+        // $task->content = $request->content;
+        // $task->user_id = $request->user_id;
+        // $task->save();
 
         return redirect('/');
     }

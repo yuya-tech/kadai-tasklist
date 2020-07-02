@@ -3,6 +3,7 @@
 @section('content')
     @if (Auth::check())
         {{ Auth::user()->name }}
+        @include('tasks.index',['tasks'=>$data['tasks']])
     @else
         <div class="center jumbotron">
             <div class="text-center">
