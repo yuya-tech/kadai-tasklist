@@ -75,7 +75,7 @@ class TasksController extends Controller
         // $task->user_id = $request->user_id;
         // $task->save();
 
-        return redirect('/');
+        return back();
     }
 
     /**
@@ -152,6 +152,6 @@ class TasksController extends Controller
         if (\Auth::id() === $task->user_id) {
             $task->delete();
         }
-        return redirect('/');
+        return back();
     }
 }
