@@ -96,6 +96,11 @@ class TasksController extends Controller
         //\Log::debug('エラーが発生しました。');
         // return redirect('/');
         // }
+        
+        // ビューアーのIDとタスクの所有者IDが違う場合はリダイレクト
+        if($task->user_id != \Auth::id()) {
+            return redirect('/');
+        }
 
         return view('tasks.show', [
             'task' => $task,
@@ -111,6 +116,11 @@ class TasksController extends Controller
     public function edit($id)
     {
         $task = task::find($id);
+        
+        // ビューアーのIDとタスクの所有者IDが違う場合はリダイレクト
+        if($task->user_id != \Auth::id()) {
+            return redirect('/');
+        }
 
         return view('tasks.edit', [
             'task' => $task,
@@ -132,6 +142,12 @@ class TasksController extends Controller
         ]);
 
         $task = Task::find($id);
+        
+        // ビューアーのIDとタスクの所有者IDが違う場合はリダイレクト
+        if($task->user_id != \Auth::id()) {
+            return redirect('/');
+        }
+        
         $task->status_name = $request->status_name;
         $task->content = $request->content;
         $task->save();
